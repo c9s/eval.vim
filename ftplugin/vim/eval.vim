@@ -24,9 +24,6 @@ fun! EvalVimScriptRegion(s,e)
   endif
 endf
 
-augroup VimEval
-  au!
-  au filetype vim :command! -range Eval  :cal EvalVimScriptRegion(<line1>,<line2>)
-  au filetype vim :vnoremap <silent> e   :Eval<CR>
-augroup END
+command! -range Eval  :cal EvalVimScriptRegion(<line1>,<line2>)
+vnoremap <silent> e   :Eval<CR>
 
